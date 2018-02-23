@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <ion-segment color="primary" [(ngModel)]="type">
+      <ion-segment-button value="hot" (ionSelect)="goToSlide(0)">
+        正在热映
+      </ion-segment-button>
+      <ion-segment-button value="good" (ionSelect)="goToSlide(1)">
+        口碑榜
+      </ion-segment-button>
+      <ion-segment-button value="new" (ionSelect)="goToSlide(2)">
+        新片榜
+      </ion-segment-button>
+    </ion-segment>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding [ngSwitch]="type">
+  <ion-slides (ionSlideWillChange)="slideToAnother()" #outerSlides>
+    <ion-slide>
+      <ion-content class="inner-ion-content" #innerHotMoviesContent>
+        <ion-refresher *ngSwitchCase="'hot'" (ionRefresh)="doRefresh($event,type)">
+          <ion-refresher-content pullingText="下拉刷新" refreshingSpinner="bubbles"></ion-refresher-content>
+        </ion-refresher>
+
+        <ion-list *ngSwitchCase="'hot'">
+          <ion-item *ngFor="let movie of moviesProvider.hotMovies" (click)="openMovieDetail()">
+            <div class="movie-img" [style.background-image]="'url(' + movie['images']['medium'] + ')'" item-start></div>
+
+            <h2 class="movie-name">
+              {{movie['title']}}
+            </h2>
+          </ion-item>
+        </ion-list>
+
+      </ion-content>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-content class="inner-ion-content" #innerGoodMoviesContent>
+        口碑榜
+      </ion-content>
+    </ion-slide>
+    <ion-slide>
+      <ion-content class="inner-ion-content" #innerNewMoviesContent>
+        新片榜
+      </ion-content>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

@@ -1,0 +1,45 @@
+page-home {
+  .slide-zoom {
+    height: 100%;
+  }
+
+  .inner-ion-content .scroll-content {
+    margin-bottom: 0 !important;
+    border:none;
+  }
+
+  .list {
+    margin-bottom: 0;
+  }
+  .item-ios {
+    width: 33%;
+    display: inline-block;
+    padding: 0;
+    border:none !important;
+    text-align: center;
+    .item-inner {
+      border:none !important;
+    }
+  }
+  .movie-img {
+    width: 69px;
+    height: 99px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .movie-name {
+    max-width: inherit;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .item-ios h2 {
+    margin-bottom: 0;
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+
+  ion-list-header {
+    text-align: left;
+  }
+}

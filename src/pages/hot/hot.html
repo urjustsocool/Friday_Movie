@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      热点
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item class="comment-item" *ngFor="let comment of commentsProvider.hotestComments" tappable
+              (click)="openDetailPage()">
+      <div>
+        <div class="comment-title">{{comment['movie']}}</div>
+        <div class="comment-sub">{{comment['user']}}&nbsp;{{comment['time']}}</div>
+        <p class="comment-article">{{comment['article']}}</p>
+      </div>
+
+      <div class="comment-below">
+        <span class="comment-view-count">
+          <ion-icon name="md-eye"></ion-icon>
+          <span>{{comment['view']}}</span>
+        </span>
+        <span class="comment-view-count">
+          <ion-icon name="md-chatbubbles"></ion-icon>
+          <span>{{comment['comments']}}</span>
+        </span>
+        <span class="comment-view-count">
+          <ion-icon name="md-thumbs-up"></ion-icon>
+          <span>{{comment['good']}}</span>
+        </span>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

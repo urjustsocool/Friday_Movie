@@ -1,0 +1,14 @@
+{
+  "name": "Friday_Movie",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  },
+  "proxies": [
+    {
+      "path": "/v2/movie",
+      "proxyUrl": "http://api.douban.com/v2/movie"
+    }
+  ]
+}

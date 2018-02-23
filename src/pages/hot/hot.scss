@@ -1,0 +1,19 @@
+page-about {
+  .comment-item .label {
+    white-space: normal;
+  }
+
+  .comment-title {
+    float: left;
+    width: 50%;
+  }
+  .comment-below {
+    float: left;
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .comment-view-count {
+    float: right;
+  }
+}
