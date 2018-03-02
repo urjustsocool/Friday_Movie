@@ -62,3 +62,6 @@ ionic cordova emulate android // 安卓启动（貌似需要安装Android SDK，
 * ionic3使用Angular2，参考：https://angular.io/guide/quickstart
 * ionic可以使用的组件参考手册：https://ionicframework.com/docs/
 * 哦对了，这个使用的是TypeScript，对象化的js，可以先看一下：https://www.tslang.cn/docs/home.html
+
+#### 注意
+* 开发时请在feature分支
