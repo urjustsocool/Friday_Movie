@@ -1,3 +1,68 @@
-page-about {
-
+page-account {
+  .scroll-content {
+    padding:0 !important;
+    background-color: #f8f8f8;
+  }
+  .head {
+    position: relative;
+    height:120px;
+    padding:25px 33px;
+    background-color: #fff;
+    .avatar {
+      width:75px;
+      height:75px;
+      overflow: hidden;
+      border-radius: 50%;
+    }
+    .info {
+      width:150px;
+      left:116px;
+      .username {
+        margin-bottom: 5px;
+      }
+    }
+    .editProfile {
+      width:70px;
+      height:25px;
+      border-radius: 5px;
+      right:33px;
+      font-size: 10px;
+    }
+  }
+  .cmtList {
+    padding:10px 5px;
+    .cmtItm {
+      padding:15px 14px 8px 20px;
+      margin-bottom: 15px;
+      background-color: #fff;
+      .time {
+        line-height: 20px;
+      }
+      .movie {
+        background-color: #f7f7f7;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        padding:4px;
+        margin-top: 5px;
+        .poster {
+          width:57px;
+          height:80px;
+        }
+        .intro {
+          height:80px;
+          margin-left: 5px;
+          .title {
+            max-width: 260px;
+            color:#000;
+            font-weight: 500;
+            line-height: 24px;
+          }
+          .screenTime {
+            max-width: 260px;
+          }
+        }
+      }
+    }
+  }
 }

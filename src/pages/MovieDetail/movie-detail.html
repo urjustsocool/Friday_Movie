@@ -1,12 +1,93 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>电影详情页</ion-title>
+    <ion-title>电影</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
+  <section class="detailHeader">
+    <div class="headBg">
+    </div>
+    <div class="poster">
+      <img src="../../assets/imgs/vincent.png" alt="">
+    </div>
+  </section>
+  <section class="detailIntro">
+    <div class="title">
+      <h1 class="f-fs20 f-thide2">标题，超出换行</h1>
+      <ion-icon name="ios-create-outline" class="f-fs24"></ion-icon>
+    </div>
+    <div class="category">2017/英国／剧情 / 传记 / 动画</div>
+    <div class="length">片长：95分钟</div>
+    <div class="actors f-thide">影人：只显示一行，超出换行 多洛塔·科别拉(导演) / 休·韦尔什曼(导演) ／道格拉斯</div>
+    <div class="screenTime">上映时间：2017-12-08(中国大陆) 上映</div>
+    <div class="summary">
+      <div class="label f-fs12 s-fcAAA">剧情简介</div>
+      <div class="cnt f-fs14">影片用一封无法投递的信件串联起梵高在去世前最后六
+        周里与他生命中最重要的三个人物之间的秘密，带观众
+        穿越回十九世纪末的欧洲，并陪伴梵高走完他最后的人
+        生。影片采用梵高原画作品中的人物原型还原梵高的艺
+        术人生，让观众在享受美得令人窒息的视觉盛宴时，抽
+        丝剥茧地发现隐藏了一个半世纪的秘密。</div>
+    </div>
+  </section>
+  <section class="myCmt">
+    <h2 class="f-fs12 s-fcAAA">我的影评</h2>
+    <ion-list>
+      <ion-item class="m-comment-item" *ngFor="let comment of commentsProvider.myComments" tappable>
+        <div>
+          <div class="comment-title f-thide">{{comment['movie']}}<ion-icon name="md-create" class="f-fs24 cmtEdit"></ion-icon></div>
+          <div class="comment-sub f-fs13">{{comment['user']}}&nbsp;&nbsp;{{comment['time']}}</div>
+          <p class="comment-article">{{comment['article']}}</p>
+        </div>
+
+        <div class="comment-below">
+        <span class="comment-view-count">
+          <ion-icon name="md-eye"></ion-icon>
+          {{comment['view']}}
+        </span>
+          <span class="comment-view-count">
+          <ion-icon name="md-chatbubbles"></ion-icon>
+          {{comment['comments']}}
+        </span>
+          <span class="comment-view-count">
+          <ion-icon name="md-thumbs-up"></ion-icon>
+          {{comment['good']}}
+        </span>
+        </div>
+      </ion-item>
+    </ion-list>
+  </section>
+  <section class="hotCmt">
+    <h2 class="f-fs12 s-fcAAA">精彩影评</h2>
+    <ion-list>
+      <ion-item class="m-comment-item" *ngFor="let comment of commentsProvider.hotestComments" tappable
+                (click)="openDetailPage()">
+        <div>
+          <div class="comment-title">{{comment['movie']}}</div>
+          <div class="comment-sub f-fs13">{{comment['user']}}&nbsp;&nbsp;{{comment['time']}}</div>
+          <p class="comment-article">{{comment['article']}}</p>
+        </div>
+
+        <div class="comment-below">
+        <span class="comment-view-count">
+          <ion-icon name="md-eye"></ion-icon>
+          {{comment['view']}}
+        </span>
+          <span class="comment-view-count">
+          <ion-icon name="md-chatbubbles"></ion-icon>
+          {{comment['comments']}}
+        </span>
+          <span class="comment-view-count">
+          <ion-icon name="md-thumbs-up"></ion-icon>
+          {{comment['good']}}
+        </span>
+        </div>
+      </ion-item>
+    </ion-list>
+  </section>
 
 </ion-content>

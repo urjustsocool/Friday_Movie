@@ -1,0 +1,26 @@
+.m-comment-item {
+  .label {
+    white-space: normal;
+  }
+  .comment-title {
+    position: relative;
+    padding-right: 20px;
+    .cmtEdit {
+      position: absolute;
+      top:0;
+      right:0;
+    }
+  }
+  .comment-below {
+    width: 100%;
+    margin-top: 8px;
+  }
+  .comment-view-count {
+    height: 20px;
+    margin-right: 9px;
+    line-height: 20px;
+    font-size: 13px;
+  }
+}
+
+

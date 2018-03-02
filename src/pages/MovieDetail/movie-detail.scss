@@ -2,8 +2,75 @@ page-movie-detail {
   .scroll-content {
     background-color: #f8f8f8;
   }
-
   .back-button {
     color: color($colors, dark);
+  }
+  .detailHeader {
+    position: relative;
+    width: 375px;
+    height: 335px;
+    padding: 30px 87px 25px 88px;
+    overflow: hidden;
+    .poster {
+      position: absolute;
+      width: 200px;
+      height: 280px;
+    }
+    .headBg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("../../assets/imgs/vincent.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 50%;
+      -webkit-filter: blur(20px);
+      filter: blur(20px);
+      -webkit-transform: scale(1.5);
+      transform: scale(1.5);
+    }
+  }
+  .detailIntro {
+    padding: 20px 15px;
+    .title {
+      position: relative;
+      padding-right: 20px;
+      margin-bottom: 10px;
+      h1 {
+        line-height: 20px;
+      }
+      ion-icon {
+        position: absolute;
+        right: 0;
+        top: -3px;
+      }
+    }
+    .category, .length, .actors, .screenTime {
+      font-size: 12px;
+      line-height: 14px;
+    }
+    .summary {
+      margin-top: 10px;
+      .label {
+        line-height: 26px;
+      }
+      .cnt {
+        line-height: 18px;
+      }
+    }
+  }
+  .myCmt {
+    h2 {
+      line-height: 26px;
+      margin-left: 15px;
+    }
+  }
+  .hotCmt {
+    h2 {
+      line-height: 26px;
+      margin-left: 15px;
+    }
   }
 }

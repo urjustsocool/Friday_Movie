@@ -12,5 +12,29 @@
 </ion-header>
 
 <ion-content padding>
-
+  <section class="head">
+    <div class="avatar">
+      <img src="../../assets/imgs/logo.png" alt="" class="f-img">
+    </div>
+    <div class="info f-vc">
+      <h1 class="username f-fs12 f-thide2">heyxuxiaoting</h1>
+      <h2 class="address f-fs10 f-thide2">杭州</h2>
+    </div>
+    <button class="editProfile f-vc" ion-button round outline (click)="openPage(profilePage)">编辑主页</button>
+  </section>
+  <section class="cmtList">
+    <div class="cmtItm" *ngFor="let comment of commentsProvider.myAllComments" tappable (click)="openMovieDetail()">
+      <div class="time f-fs12 s-fcAAA">{{comment.time}}</div>
+      <div class="article">{{comment.article}}</div>
+      <div class="movie">
+        <div class="poster">
+          <img src="../../assets/imgs/vincent.png" alt="" class="f-img">
+        </div>
+        <div class="intro f-fvc">
+          <h2 class="title f-thide">谁的青春不迷茫</h2>
+          <div class="screenTime f-fs12 s-fcAAA f-thide">2016-04-22(中国大陆) 上映</div>
+        </div>
+      </div>
+    </div>
+  </section>
 </ion-content>

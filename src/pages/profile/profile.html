@@ -1,0 +1,47 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>个人信息</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-item-group>
+    <button ion-item>
+      <ion-label>头像</ion-label>
+      <ion-avatar item-end>
+        <div class="avatar"
+             [style.background-image]="user.photoURL === '' ? 'url(../../assets/imgs/logo.png)' : 'url(' + user.photoURL + ')'">
+        </div>
+      </ion-avatar>
+    </button>
+
+    <button ion-item (click)="openPage(editUserNamePage)">
+      <ion-label>昵称</ion-label>
+      <span class="item-end-span" item-end>{{user.name}}</span>
+    </button>
+    <button ion-item (click)="openPage(editUserNamePage)">
+      <ion-label>性别</ion-label>
+      <span class="item-end-span" item-end>{{user.gender}}</span>
+    </button>
+    <button ion-item (click)="openPage(editUserNamePage)">
+      <ion-label>城市</ion-label>
+      <span class="item-end-span" item-end>{{user.city}}</span>
+    </button>
+    <button ion-item (click)="openPage(editUserNamePage)">
+      <ion-label>生日</ion-label>
+      <span class="item-end-span" item-end>{{user.birthday}}</span>
+    </button>
+
+  </ion-item-group>
+
+  <ion-item-group>
+    <ion-item-divider color="light"></ion-item-divider>
+    <ion-item>
+      <ion-label stacked>介绍</ion-label>
+      <ion-input type="text" placeholder="请输入你的简介"></ion-input>
+    </ion-item>
+  </ion-item-group>
+</ion-content>
