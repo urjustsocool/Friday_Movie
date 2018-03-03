@@ -11,8 +11,13 @@ export class AccountPage {
   settingPage = 'SettingPage';
   profilePage = 'ProfilePage';
   movieDetailPage = 'MovieDetailPage';
+  loginPage  = "LoginPage";
+  hasLoggedIn:boolean;
   constructor(public navCtrl: NavController, public commentsProvider:CommentsProvider) {
     this.commentsProvider.getAllMine();
+  }
+  ionViewWillEnter() {
+    this.getLoginState();
   }
   openPage(page: string) {
     this.navCtrl.push(page).then(value => {
@@ -23,5 +28,8 @@ export class AccountPage {
     this.navCtrl.push(this.movieDetailPage).then(value => {
       return value;
     });
+  }
+  getLoginState () {
+    this.hasLoggedIn = false;
   }
 }

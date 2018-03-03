@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>登录</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="openPage(signupPage)">注册</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>用户名</ion-label>
+      <ion-input type="tel" placeholder="请输入用户名" clearInput="true" [(ngModel)]="info.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>密码</ion-label>
+      <ion-input [type]="isClearTextPassword?'text':'password'" placeholder="请输入密码" clearInput="true"
+                 clearOnEdit="false" [(ngModel)]="info.password">
+      </ion-input>
+      <button ion-button icon-only clear color="dark" item-end *ngIf="!isClearTextPassword"
+              (click)="toggleClearTextPassword()">
+        <ion-icon name="eye"></ion-icon>
+      </button>
+      <button ion-button icon-only clear color="dark" item-end *ngIf="isClearTextPassword"
+              (click)="toggleClearTextPassword()">
+        <ion-icon name="eye-off"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+  <div class="f-tc">
+    <button class="login-button" ion-button round (click)="onLogin()">登录</button>
+  </div>
+</ion-content>

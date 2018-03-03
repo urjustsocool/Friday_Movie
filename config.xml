@@ -84,5 +84,7 @@
     <allow-navigation href="http://192.168.1.59:8100" />
     <allow-navigation href="http://api.douban.com/*" />
     <allow-navigation href="https://api.douban.com/*" />
+    <allow-navigation href="http://172.16.33.237:8102" />
+    <allow-navigation href="http://172.16.33.237:8100" />
     <engine name="ios" spec="~4.5.4" />
 </widget>

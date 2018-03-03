@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-navbar hideBackButton>
+    <ion-buttons left>
+      <button ion-button icon-only (click)="goBack()">
+        <ion-icon name="md-close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title *ngIf="navParams.get('type')=='add'">发影评</ion-title>
+    <ion-title *ngIf="navParams.get('type')=='update'">更新影评</ion-title>
+    <ion-buttons end>
+      <button ion-button color="dark" (click)="publishCmt()">
+        发布
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-textarea placeholder="写下你的想法" class="cmt"></ion-textarea>
+</ion-content>
