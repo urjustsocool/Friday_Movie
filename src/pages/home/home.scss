@@ -22,8 +22,8 @@ page-home {
     }
   }
   .movie-img {
-    width: 250px;
-    height: 300px;
+    width: 69px;
+    height: 99px;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -33,6 +33,7 @@ page-home {
     max-width: inherit;
     overflow: hidden;
     text-overflow: ellipsis;
+    margin: 0 auto !important;
   }
   .item-ios h2 {
     margin-bottom: 0;
