@@ -9,6 +9,10 @@
     {
       "path": "/v2/movie",
       "proxyUrl": "http://api.douban.com/v2/movie"
+    },
+    {
+      "path": "/movie",
+      "proxyUrl": "http://heyxuxiaoting.cn:8900/movie"
     }
   ]
 }

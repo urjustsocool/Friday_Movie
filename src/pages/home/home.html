@@ -23,7 +23,7 @@
         </ion-refresher>
 
         <ion-list *ngSwitchCase="'hot'">
-          <ion-item *ngFor="let hotMovieItem of moviesProvider.hotMovies" (click)="openMovieDetail()">
+          <ion-item *ngFor="let hotMovieItem of moviesProvider.hotMovies" (click)="openMovieDetail(hotMovieItem.id)">
             <div class="movie-img" [style.background-image]="'url(' + processImgUrl(hotMovieItem['images']['medium']) + ')'" item-start></div>
 
             <h2 class="movie-name">
