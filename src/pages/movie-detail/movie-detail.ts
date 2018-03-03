@@ -8,10 +8,15 @@ import {CommentsProvider} from "../../providers/comments/comments";
   templateUrl: 'movie-detail.html',
 })
 export class MovieDetailPage {
-
+  editCmtPage = "EditCmtPage";
   constructor(public navCtrl: NavController, public navParams: NavParams, public commentsProvider:CommentsProvider) {
     this.commentsProvider.getMine();
     this.commentsProvider.getHotests();
+  }
+  openPage(page: string,type:string) {
+    this.navCtrl.push(page,{type}).then(value => {
+      return value;
+    });
   }
 
 }

@@ -1,0 +1,17 @@
+page-edit-cmt {
+  .scroll-content {
+    background-color: #f8f8f8;
+  }
+
+  .back-button {
+    color: color($colors, dark);
+  }
+
+  .cmt {
+    padding: 10px 15px;
+    height:100%;
+    font-size: 14px;
+    line-height: 20px;
+    background-color: #fff;
+  }
+}

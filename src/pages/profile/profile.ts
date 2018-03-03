@@ -35,4 +35,7 @@ export class ProfilePage {
   getUserData () {
 
   }
+  save () {
+    this.openPage("AccountPage");
+  }
 }
