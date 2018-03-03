@@ -37,4 +37,8 @@ export class HomePage {
       return value;
     });
   }
+  processImgUrl(val:string) {
+    //Special process Failed to load resource: the server responded with a status of 403 (Forbidden) for loading img7 URL
+    return val.replace('img7','img3')
+  }
 }
