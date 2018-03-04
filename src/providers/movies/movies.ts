@@ -6,6 +6,7 @@ export class MoviesProvider {
   hotMovies:any[];
   goodMovies:any[];
   newMovies:any[];
+  movieDetail:any = {images:{"medium":''},durations:[],countries:[],genres:[],casts:[],pubdates:[]};
   hotMoviesTotal:number;
   hasNext:any = {"hot":true,"coming":true};
   constructor(public http: HttpClient){
@@ -26,5 +27,11 @@ export class MoviesProvider {
     this.http.get(newMoviesUrl).subscribe(data => {
       this.newMovies = data["subjects"]
     });
+  }
+
+  getMovieDetail(id) {
+    this.http.get("/v2/movie/subject/"+id+"?apikey=0df993c66c0c636e29ecbb5344252a4a").subscribe(data => {
+      this.movieDetail = data;
+    })
   }
 }

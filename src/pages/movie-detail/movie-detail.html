@@ -9,29 +9,24 @@
 
 <ion-content>
   <section class="detailHeader">
-    <div class="headBg">
+    <div class="headBg" [style.background-image]="'url(' + processImgUrl(moviesProvider['movieDetail']['images']['medium']) + ')'">
     </div>
     <div class="poster">
-      <img src="../../assets/imgs/vincent.png" alt="">
+      <img [src]="processImgUrl(moviesProvider['movieDetail']['images']['medium'])" alt="">
     </div>
   </section>
   <section class="detailIntro">
     <div class="title">
-      <h1 class="f-fs20 f-thide2">标题，超出换行</h1>
+      <h1 class="f-fs20 f-thide2">{{moviesProvider.movieDetail.title}}</h1>
       <ion-icon name="ios-create-outline" class="f-fs24" tappable (click)="openPage(editCmtPage,'add')"></ion-icon>
     </div>
-    <div class="category">2017/英国／剧情 / 传记 / 动画</div>
-    <div class="length">片长：95分钟</div>
-    <div class="actors f-thide">影人：只显示一行，超出换行 多洛塔·科别拉(导演) / 休·韦尔什曼(导演) ／道格拉斯</div>
-    <div class="screenTime">上映时间：2017-12-08(中国大陆) 上映</div>
+    <div class="category f-thide">{{moviesProvider.movieDetail.year}} / <span *ngFor="let item of moviesProvider.movieDetail.countries">{{item}} / </span><span *ngFor="let item of moviesProvider.movieDetail.genres">{{item}} / </span></div>
+    <div class="length">片长：{{moviesProvider.movieDetail.durations[0]}}</div>
+    <div class="actors f-thide">影人：<span *ngFor="let item of moviesProvider.movieDetail.casts">{{item.name}} / </span></div>
+    <div class="screenTime f-thide2">上映时间：<span *ngFor="let item of moviesProvider.movieDetail.pubdates">{{item}} / </span></div>
     <div class="summary">
       <div class="label f-fs12 s-fcAAA">剧情简介</div>
-      <div class="cnt f-fs14">影片用一封无法投递的信件串联起梵高在去世前最后六
-        周里与他生命中最重要的三个人物之间的秘密，带观众
-        穿越回十九世纪末的欧洲，并陪伴梵高走完他最后的人
-        生。影片采用梵高原画作品中的人物原型还原梵高的艺
-        术人生，让观众在享受美得令人窒息的视觉盛宴时，抽
-        丝剥茧地发现隐藏了一个半世纪的秘密。</div>
+      <div class="cnt f-fs14">{{moviesProvider.movieDetail.summary}}</div>
     </div>
   </section>
   <section class="myCmt">

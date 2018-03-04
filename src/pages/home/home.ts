@@ -32,8 +32,8 @@ export class HomePage {
       console.log("do refresh");
     },1500);
   }
-  openMovieDetail(){
-    this.navCtrl.push(this.movieDetailPage).then(value => {
+  openMovieDetail(id){
+    this.navCtrl.push(this.movieDetailPage,{id}).then(value => {
       return value;
     });
   }

@@ -30,6 +30,6 @@ export class AccountPage {
     });
   }
   getLoginState () {
-    this.hasLoggedIn = false;
+    this.hasLoggedIn = true;
   }
 }
