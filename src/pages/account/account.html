@@ -14,11 +14,11 @@
 <ion-content padding>
   <section class="head">
     <div class="avatar">
-      <img src="../../assets/imgs/logo.png" alt="" class="f-img">
+      <img [src]="hasLoggedIn? userProvider.user.photoUrl : '../../assets/imgs/logo.png' " alt="" class="f-img">
     </div>
     <div class="info f-vc" *ngIf="hasLoggedIn">
-      <h1 class="username f-fs12 f-thide2">heyxuxiaoting</h1>
-      <h2 class="address f-fs10 f-thide2">杭州</h2>
+      <h1 class="username f-fs12 f-thide2">{{userProvider.user.accountId}}</h1>
+      <h2 class="address f-fs10 f-thide2">{{userProvider.user.city==="暂无"?"居无定所":userProvider.user.city}}</h2>
     </div>
     <button class="editProfile f-vc" ion-button round outline (click)="openPage(profilePage)" *ngIf="hasLoggedIn">编辑主页</button>
     <button class="editProfile f-vc" ion-button round outline (click)="openPage(loginPage)" *ngIf="!hasLoggedIn">登录/注册</button>

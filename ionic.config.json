@@ -13,6 +13,10 @@
     {
       "path": "/movie",
       "proxyUrl": "http://heyxuxiaoting.cn:8900/movie"
+    },
+    {
+      "path": "/user",
+      "proxyUrl": "http://heyxuxiaoting.cn:8900/user"
     }
   ]
 }

@@ -10,7 +10,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import {MoviesProvider} from '../providers/movies/movies';
 import {CommentsProvider} from '../providers/comments/comments';
-
+import {UserProvider} from "../providers/user/user";
+import { CookieService } from 'angular2-cookie/services/cookies.service';
 @NgModule({
   declarations: [
     MyApp,
@@ -34,7 +35,10 @@ import {CommentsProvider} from '../providers/comments/comments';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     MoviesProvider,
-    CommentsProvider
+    CommentsProvider,
+    UserProvider,
+    Storage,
+    CookieService
   ]
 })
 export class AppModule {}

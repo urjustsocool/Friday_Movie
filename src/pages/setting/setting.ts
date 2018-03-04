@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams, ActionSheetController, ToastController} from 'ionic-angular';
+import {UserProvider} from "../../providers/user/user";
+import { CookieService } from 'angular2-cookie/services/cookies.service';
 
 @IonicPage()
 @Component({
@@ -11,7 +13,7 @@ export class SettingPage {
 
   hasLoggedIn: boolean;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public actionSheetCtrl: ActionSheetController, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public actionSheetCtrl: ActionSheetController, public toastCtrl: ToastController, public userProvider:UserProvider,public cookieService:CookieService) {
   }
 
   ionViewWillEnter() {
@@ -19,11 +21,18 @@ export class SettingPage {
   }
 
   getLoginState() {
-    console.log("判断是否登录");
+    if (this.cookieService.get("token")) {
+      this.hasLoggedIn = true;
+    }
+    else {
+      this.hasLoggedIn = false;
+    }
   }
 
   onLogout() {
     console.log("退出登录");
+    this.cookieService.removeAll();
+    this.navCtrl.pop();
   }
 
   presentToast(message: string) {

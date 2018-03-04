@@ -1,6 +1,7 @@
 import {Component, ViewChild} from '@angular/core';
 import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
-
+import {UserProvider} from "../../providers/user/user";
+import { CookieService } from 'angular2-cookie/services/cookies.service';
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -8,14 +9,15 @@ import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angula
 })
 export class LoginPage {
   signupPage = 'SignupPage';
+  accountPage = 'AccountPage';
 
   isClearTextPassword: boolean;
 
-  info: { name: string, password: string };
+  info: { accountId: string, password: string };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public userProvider:UserProvider,private _cookieService:CookieService) {
     this.isClearTextPassword = false;
-    this.info = {name: '', password: ''};
+    this.info = {accountId: '', password: ''};
   }
 
   ngAfterViewInit() {
@@ -31,10 +33,21 @@ export class LoginPage {
   }
 
   onLogin() {
-    if (this.info.name === '' || this.info.password === '') {
+    if (this.info.accountId === '' || this.info.password === '') {
       this.presentToast('输入信息不能为空');
     } else {
-
+      this.userProvider.login(this.info).then((res:{code:number,message:string})=>{
+        if(res.code === 0){
+          this.presentToast("登录成功");
+          // 存cookie
+          // this._cookieService.put("accountId",this.info.accountId);
+          // 跳转
+          this.openPage(this.accountPage);
+        }
+        else {
+          this.presentToast(res.message);
+        }
+      })
     }
   }
 

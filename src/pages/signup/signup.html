@@ -11,12 +11,12 @@
   <ion-list>
     <ion-item>
       <ion-label fixed>用户名</ion-label>
-      <ion-input type="name" placeholder="请输入用户名" clearInput="true" [(ngModel)]="signup.name"></ion-input>
+      <ion-input type="name" placeholder="请输入用户名" clearInput="true" [(ngModel)]="signup.accountId"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label fixed>密码</ion-label>
-      <ion-input type="password" placeholder="请输入密码" clearInput="true" clearOnEdit="false"
+      <ion-input type="password" placeholder="请输入密码(至少6位)" clearInput="true" clearOnEdit="false"
                  [(ngModel)]="signup.password">
       </ion-input>
     </ion-item>
