@@ -88,5 +88,8 @@
     <allow-navigation href="http://172.16.33.237:8100" />
     <allow-navigation href="http://172.16.33.237:8101" />
     <allow-navigation href="http://192.168.0.100:8100" />
+    <plugin name="cordova-plugin-datepicker" spec="^0.9.3" />
+    <plugin name="cordova-plugin-camera" spec="^4.0.2" />
+    <plugin name="cordova-plugin-file-transfer" spec="^1.7.1" />
     <engine name="ios" spec="~4.5.4" />
 </widget>

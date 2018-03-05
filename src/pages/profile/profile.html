@@ -14,39 +14,41 @@
 
 <ion-content>
   <ion-item-group>
-    <button ion-item>
-      <ion-label>头像</ion-label>
+    <button ion-item (click)="presentChangeAvatarActionSheet()">
+      <ion-label>头像 (用户：{{user.accountId}})</ion-label>
       <ion-avatar item-end>
         <div class="avatar"
-             [style.background-image]="user.photoURL === '' ? 'url(../../assets/imgs/logo.png)' : 'url(' + user.photoURL + ')'">
+             [style.background-image]="user.photoUrl === '' ? 'url(../../assets/imgs/logo.png)' : 'url(' + user.photoUrl + ')'">
         </div>
       </ion-avatar>
     </button>
 
-    <button ion-item (click)="openPage(editUserNamePage)">
+    <ion-item>
       <ion-label>昵称</ion-label>
-      <span class="item-end-span" item-end>{{user.name}}</span>
-    </button>
-    <button ion-item (click)="openPage(editUserNamePage)">
-      <ion-label>性别</ion-label>
-      <span class="item-end-span" item-end>{{user.gender}}</span>
-    </button>
-    <button ion-item (click)="openPage(editUserNamePage)">
+      <ion-input class="item-end-span" item-end [(ngModel)]="user.nickName"></ion-input>
+    </ion-item>
+    <ion-item>
       <ion-label>城市</ion-label>
-      <span class="item-end-span" item-end>{{user.city}}</span>
-    </button>
-    <button ion-item (click)="openPage(editUserNamePage)">
+      <ion-input class="item-end-span" item-end [(ngModel)]="user.city"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>性别</ion-label>
+      <ion-select [(ngModel)]="user.gender" okText="确定" cancelText="取消" interface="popover">
+        <ion-option value="男">男</ion-option>
+        <ion-option value="女">女</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
       <ion-label>生日</ion-label>
-      <span class="item-end-span" item-end>{{user.birthday}}</span>
-    </button>
-
+      <ion-input class="item-end-span" item-end [(ngModel)]="user.birthday" type="date"></ion-input>
+    </ion-item>
   </ion-item-group>
 
   <ion-item-group>
     <ion-item-divider color="light"></ion-item-divider>
     <ion-item>
       <ion-label stacked>介绍</ion-label>
-      <ion-textarea placeholder="请输入你的简介" class="sign"></ion-textarea>
+      <ion-textarea placeholder="请输入你的简介" class="sign" [(ngModel)]="user.introduction"></ion-textarea>
     </ion-item>
   </ion-item-group>
 </ion-content>

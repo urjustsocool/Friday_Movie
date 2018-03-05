@@ -46,6 +46,12 @@ export class UserProvider {
       console.log("the photoURL after: "+this.user.photoUrl);
     })
   }
+  updateUser (user) {
+    return this.http.post("/user/account",user).toPromise();
+  }
+  getUserPro () {
+    return this.http.get("/user/account").toPromise();
+  }
   obj2query(data) {
     var query = "";
     if (!data) return query;
