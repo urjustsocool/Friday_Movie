@@ -24,16 +24,16 @@
     <button class="editProfile f-vc" ion-button round outline (click)="openPage(loginPage)" *ngIf="!hasLoggedIn">登录/注册</button>
   </section>
   <section class="cmtList" *ngIf="hasLoggedIn">
-    <div class="cmtItm" *ngFor="let comment of commentsProvider.myAllComments" tappable (click)="openMovieDetail()">
-      <div class="time f-fs12 s-fcAAA">{{comment.time}}</div>
-      <div class="article">{{comment.article}}</div>
+    <div class="cmtItm" *ngFor="let comment of commentsProvider.myAllComments" tappable (click)="openMovieDetail(comment.movieId)">
+      <div class="time f-fs12 s-fcAAA">{{timestampToDate(comment.commentTime)}}</div>
+      <div class="article">{{comment.commentContent}}</div>
       <div class="movie">
         <div class="poster">
-          <img src="../../assets/imgs/vincent.png" alt="" class="f-img">
+          <img [src]="comment.image" alt="" class="f-img">
         </div>
         <div class="intro f-fvc">
-          <h2 class="title f-thide">谁的青春不迷茫</h2>
-          <div class="screenTime f-fs12 s-fcAAA f-thide">2016-04-22(中国大陆) 上映</div>
+          <h2 class="title f-thide">{{comment.movieName}}</h2>
+          <div class="screenTime f-fs12 s-fcAAA f-thide">{{comment.pubdate}} 上映</div>
         </div>
       </div>
     </div>

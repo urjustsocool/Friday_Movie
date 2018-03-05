@@ -10,6 +10,8 @@ import {CommentsProvider} from "../../providers/comments/comments";
 export class HotPage {
 
   constructor(public navCtrl: NavController, public commentsProvider:CommentsProvider) {
+  }
+  ionViewWillEnter () {
     this.commentsProvider.getHotests();
   }
   openDetailPage(){

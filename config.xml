@@ -87,5 +87,6 @@
     <allow-navigation href="http://172.16.33.237:8102" />
     <allow-navigation href="http://172.16.33.237:8100" />
     <allow-navigation href="http://172.16.33.237:8101" />
+    <allow-navigation href="http://192.168.0.100:8100" />
     <engine name="ios" spec="~4.5.4" />
 </widget>

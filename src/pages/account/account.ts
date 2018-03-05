@@ -19,7 +19,6 @@ export class AccountPage {
   constructor(public navCtrl: NavController, public commentsProvider: CommentsProvider, public userProvider: UserProvider, public cookieService: CookieService) {
     this.commentsProvider.getAllMine();
     this.userProvider.getUser();
-    console.log(this.userProvider.user.photoURL);
   }
 
   ionViewWillEnter() {
@@ -32,8 +31,8 @@ export class AccountPage {
     });
   }
 
-  openMovieDetail() {
-    this.navCtrl.push(this.movieDetailPage).then(value => {
+  openMovieDetail(movieId) {
+    this.navCtrl.push(this.movieDetailPage,{id:movieId}).then(value => {
       return value;
     });
   }
@@ -45,5 +44,12 @@ export class AccountPage {
     else {
       this.hasLoggedIn = false;
     }
+  }
+  timestampToDate(timestamp: number) {
+    let date = new Date(timestamp);
+    let Y = date.getFullYear() + '-';
+    let M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+    let D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' ';
+    return Y + M + D;
   }
 }
