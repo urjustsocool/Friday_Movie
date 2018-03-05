@@ -13,8 +13,8 @@ export class CommentsProvider {
   }
 
   // 获取热点评论
-  getHotests() {
-    let hotCommentsUrl: string = "/movie/comment/hot?pageIndex=1&pageSize=10";
+  getHotests(pageIndex,pageSize) {
+    let hotCommentsUrl: string = "/movie/comment/hot?pageIndex="+pageIndex+"&pageSize="+pageSize;
     this.http.get(hotCommentsUrl).subscribe(data => {
       this.hotestComments = data["results"].hot;
       console.log("hot movies", this.hotestComments);

@@ -29,9 +29,9 @@
       <div class="cnt f-fs14">{{moviesProvider.movieDetail.summary}}</div>
     </div>
   </section>
-  <section class="myCmt" *ngIf="hasLoggedIn">
+  <section class="myCmt" *ngIf="hasLoggedIn&&commentsProvider.myComment">
     <h2 class="f-fs12 s-fcAAA">我的影评</h2>
-    <ion-list *ngIf="commentsProvider.myComment">
+    <ion-list>
       <ion-item class="m-comment-item">
         <div>
           <div class="comment-title f-thide">{{commentsProvider.myComment.movieName}}<ion-icon name="md-create" class="f-fs24 cmtEdit" tappable (click)="openPage(editCmtPage,'update',commentsProvider.myComment.commentId,commentsProvider.myComment.commentContent)"></ion-icon></div>
@@ -56,11 +56,10 @@
       </ion-item>
     </ion-list>
   </section>
-  <section class="hotCmt">
+  <section class="hotCmt" *ngIf="commentsProvider.otherComments">
     <h2 class="f-fs12 s-fcAAA">精彩影评</h2>
     <ion-list>
-      <ion-item class="m-comment-item" *ngFor="let comment of commentsProvider.otherComments"
-                (click)="openDetailPage()">
+      <ion-item class="m-comment-item" *ngFor="let comment of commentsProvider.otherComments">
         <div>
           <div class="comment-title">{{comment['movieName']}}</div>
           <div class="comment-sub f-fs13">{{comment['accountId']}}&nbsp;&nbsp;{{timestampToDate(comment['commentTime'])}}</div>

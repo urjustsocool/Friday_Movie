@@ -7,25 +7,31 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-fab class="animated bounceInUp" right bottom>
+    <button ion-fab (click)="scrollToTop()">
+      <ion-icon name="arrow-up"></ion-icon>
+    </button>
+  </ion-fab>
+  <ion-refresher (ionRefresh)="doRefresh($event,type)">
+    <ion-refresher-content pullingText="下拉刷新" refreshingSpinner="bubbles"></ion-refresher-content>
+  </ion-refresher>
   <ion-list>
-    <ion-item class="m-comment-item" *ngFor="let comment of commentsProvider.hotestComments" tappable
-              (click)="openDetailPage()">
+    <ion-item class="m-comment-item" *ngFor="let comment of commentsProvider.hotestComments">
       <div>
         <div class="comment-title">{{comment['movieName']}}</div>
-        <div class="comment-sub f-fs13">{{comment['nickName']}}&nbsp;&nbsp;{{timestampToDate(comment['commentTime'])}}</div>
+        <div class="comment-sub f-fs13">{{comment['accountId']}}&nbsp;&nbsp;{{comment['commentTime']?timestampToDate(comment['commentTime']):""}}</div>
         <p class="commentContent">{{comment['article']}}</p>
       </div>
 
       <div class="comment-below">
         <span class="comment-view-count">
-          <ion-icon name="md-eye"></ion-icon>
-          {{comment['watch']}}
-        </span>
-        <span class="comment-view-count">
-          <ion-icon name="md-thumbs-up"></ion-icon>
+          <ion-icon name="md-thumbs-up" (click)="vote(comment.commentId)"></ion-icon>
           {{comment['vote']}}
         </span>
       </div>
     </ion-item>
   </ion-list>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content loadingSpinner="dots"></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

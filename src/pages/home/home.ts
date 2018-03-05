@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {IonicPage, NavController, Slides} from "ionic-angular";
+import {IonicPage, NavController, Refresher, Slides} from "ionic-angular";
 import {MoviesProvider} from "../../providers/movies/movies";
 
 @IonicPage()
@@ -26,11 +26,6 @@ export class HomePage {
     }else if (index === 2) {
       this.type = "new";
     }
-  }
-  doRefresh() {
-    setTimeout(()=>{
-      console.log("do refresh");
-    },1500);
   }
   openMovieDetail(id){
     this.navCtrl.push(this.movieDetailPage,{id}).then(value => {

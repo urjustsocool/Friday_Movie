@@ -18,9 +18,6 @@
   <ion-slides (ionSlideWillChange)="slideToAnother()" #outerSlides>
     <ion-slide>
       <ion-content class="inner-ion-content" #innerHotMoviesContent>
-        <ion-refresher *ngSwitchCase="'hot'" (ionRefresh)="doRefresh($event,type)">
-          <ion-refresher-content pullingText="下拉刷新" refreshingSpinner="bubbles"></ion-refresher-content>
-        </ion-refresher>
 
         <ion-list *ngSwitchCase="'hot'">
           <ion-item *ngFor="let hotMovieItem of moviesProvider.hotMovies" (click)="openMovieDetail(hotMovieItem.id)">

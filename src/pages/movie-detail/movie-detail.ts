@@ -24,6 +24,12 @@ export class MovieDetailPage {
     this.getLoginState();
   }
   openPage(page: string, type:string, id:string, title:string) {
+    if(page === "EditCmtPage"){
+      if(!this.hasLoggedIn){
+        this.presentToast("未登录，请先登录");
+        return;
+      }
+    }
     this.navCtrl.push(page,{type,id,title}).then(value => {
       return value;
     });
