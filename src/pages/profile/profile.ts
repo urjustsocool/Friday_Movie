@@ -65,27 +65,6 @@ export class ProfilePage {
     })
   }
 
-  presentChangeAvatarActionSheet() {
-    if (!this.platform.is('cordova')) {
-      this.presentToast('该平台更换头像功能暂不支持');
-    } else {
-      let changeAvatarActionSheet = this.actionSheetCtrl.create({
-        title: '更换头像', buttons: [{
-          text: '相册', handler: () => {
-            this.getPictureAndUpload(this.camera.PictureSourceType.PHOTOLIBRARY);
-          }
-        }, {
-          text: '拍照', handler: () => {
-            this.getPictureAndUpload(this.camera.PictureSourceType.CAMERA);
-          }
-        }, {text: '取消', role: 'cancel'}]
-      });
-      changeAvatarActionSheet.present().then(value => {
-        return value;
-      });
-    }
-  }
-
   getPictureAndUpload(sourceType: number) {
     const cameraOptions: CameraOptions = {
       quality: 80,
@@ -121,13 +100,37 @@ export class ProfilePage {
       headers: {'Content-Type': 'multipart/form-data'}
     };
 
-    let url: string = '/api/upload?smfile=' + fileURI;
-
+    /*this.userProvider.uploadImg(fileURI).then((res:{data:{url:string}})=>{
+      this.user.photoUrl = res.data.url;
+    })*/
+    let url: string = 'https://sm.ms/api/upload?smfile=' + fileURI;
     fileTransferObject.upload(fileURI, url, fileUploadOptions).then(data => {
       this.user.photoUrl = JSON.parse(data["response"])["data"]["url"];
     }, error => {
       console.log(error);
     });
+  }
+
+
+  presentChangeAvatarActionSheet() {
+    if (!this.platform.is('cordova')) {
+      this.presentToast('该平台更换头像功能暂不支持');
+    } else {
+      let changeAvatarActionSheet = this.actionSheetCtrl.create({
+        title: '更换头像', buttons: [{
+          text: '相册', handler: () => {
+            this.getPictureAndUpload(this.camera.PictureSourceType.PHOTOLIBRARY);
+          }
+        }, {
+          text: '拍照', handler: () => {
+            this.getPictureAndUpload(this.camera.PictureSourceType.CAMERA);
+          }
+        }, {text: '取消', role: 'cancel'}]
+      });
+      changeAvatarActionSheet.present().then(value => {
+        return value;
+      });
+    }
   }
   dateFormat(fmt,date) {
     var o = {

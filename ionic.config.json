@@ -17,10 +17,6 @@
     {
       "path": "/user",
       "proxyUrl": "http://heyxuxiaoting.cn:8900/user"
-    },
-    {
-      "path":"/api/upload",
-      "proxyUrl":"https://sm.ms/api/upload"
     }
   ]
 }

@@ -61,4 +61,8 @@ export class UserProvider {
     // remove last `&`;
     return query.replace(/&$/, "");
   }
+  uploadImg(fileURI){
+    const headers = new HttpHeaders().set("Content-Type", "application/x-www-form-urlencoded");
+    return this.http.post("/api/upload",{smfile:fileURI},{headers}).toPromise();
+  }
 }
